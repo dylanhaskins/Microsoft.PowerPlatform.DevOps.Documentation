@@ -1,24 +1,21 @@
-[toc]
+# What is Microsoft.PowerPlatform.DevOps?
 
-# Documentation and user guide
+The Microsoft.PowerPlatform.DevOps toolset and framework is built around environment and solution management implementation strategies documented in the [ALM White Paper for Power Platform](https://www.microsoft.com/en-us/download/details.aspx?id=57777).
 
-[For a detailed instruction on the toolset, link via 365.training](https://365.training/Instructors/detail/EugenevanStaden)
+Our framework includes a rich toolset that allow developers and non-developers alike to:
 
-## Pre-requisites:
+- Create and manage environments
+- Create and manage Solutions
+- Bind and manage environments and solutions to source control
+- Implement a structured build and release strategy across all environments for all solutions
+- Leverage built in code standards
+- Speed up delivery of projects
+- Scale and easy adoption
+- Build on top of the standard ALM and Platform SDK tooling
+- Implement standard toolset on projects, including large, multi team, and multi environment projects
+- Standardise delivery and architectural design across projects
 
-- PowerShell minimum version [TBC]
-- Administrative access on your installation device
-- Azure DevOps
-    - Access to Azure DevOps Project with account [access level Basic or Visual Studio Subscription (not stakeholder)](https://docs.microsoft.com/en-us/azure/devops/organizations/security/access-levels?view=azure-devops#supported-access-levels)
-- CDS 
-
-## Terminology
-| Term | Description |
-|--|--|
-| ADO | Azure DevOps |
-| CDS | Common Data Service |
-
-## Setup
+# Setup the module
 
 | Action | PowerShell Cmdlet | Steps |
 |--|--|--|
@@ -28,7 +25,23 @@
 | **Find newer version** | `[U]` | 1. `Invoke-PowerPlatformDevOps` <br>2. Select `[U]` to check if there are newer versions available |  |
 | **Update your version** | `Update-Module Microsoft.PowerPlatform.DevOps -Force` | 1. Run the cmdlet |  |
 
-# Using the tool
+## Pre-requisites:
+
+- PowerShell minimum version [TBC]
+- Administrative access on your installation device
+- Azure DevOps
+    - Access to Azure DevOps Project with account [access level Basic or Visual Studio Subscription (not stakeholder)](https://docs.microsoft.com/en-us/azure/devops/organizations/security/access-levels?view=azure-devops#supported-access-levels)
+
+## Terminology
+| Term | Description |
+|--|--|
+| ADO | Azure DevOps |
+| CDS | Common Data Service |
+
+## Videos
+[For a detailed instruction on the toolset, link via 365.training](https://365.training/Instructors/detail/EugenevanStaden)
+
+# Quick guide to using the tool
 
 | # | Step | Description |
 |--|--|--|
@@ -47,7 +60,7 @@
 | U | Check for [U]pdates to Microsoft.PowerPlatform.DevOps |
 | Q | Press 'Q' to quit |
 
-## 2 - Create a New Project or Select Existing
+## Create a New Project or Select Existing
 
 | Option | Description |
 |--|--|
@@ -56,7 +69,7 @@
 | Create a new project | Create and connect a new local project repository |
 | Clone an existing repo | Clone an existing repository from ADO |
 
-## 3 - Configure Azure DevOps
+## Configure Azure DevOps
 
 - Connects to your ADO organisation and project
 - Connects your local repository to ADO
@@ -95,7 +108,7 @@
     }
     ```
 
-## 4 - Add New D365 / CDS Solution
+## Add New D365 / CDS Solution
 
 - Add a solution from a CDS environment to your local repository
 
@@ -160,7 +173,7 @@
     }
     ```
 
-## 5 - Configure Continuous Deployment
+## Configure Continuous Deployment
 
 - Connects to your CDS staging environment
 - Adds pipeline [environment](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments)
@@ -206,7 +219,7 @@
 - New 'Staging' environment in ADO
 - New variable group in ADO
 
-## T - Add Additional Deployment Environment [T]arget
+## Add Additional Deployment Environment [T]arget
 
 - Connects additional target environment
 - Adds pipeline [environment](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/environments)
@@ -240,17 +253,6 @@
                 filePath: '$(Pipeline.Workspace)/drop/Solutions/Scripts/SolutionDeploy.ps1'
                 arguments: '-DeployServerUrl $(d365url) -UserName $(d365username) -Password $(d365password) -PipelinePath $(Pipeline.Workspace)'
     ```
+
 - New 'Test' environment in ADO
 - New variable group in ADO
-
-# Things to know
-| Category | Q | A |
-|--|--|--|
-| Setup | Run Pre-requisite checks (Install / Update) is erroring out | [Check/set your PowerShell execution policy to bypass](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/set-executionpolicy) |
-|  | Where do I set solution ordering/layering  | This is configured in: _&lt;YourADORepo&gt;.json_ |
-|  | How do I set individual build to go to specific environments | This is configured in: _build.yaml_<br>This is configured by:  |
-| Build | When should I build in Debug mode? |  |
-| Build | When should I build in Release mode? |  |
-| Build | When should I build in SolutionPackager mode? |  |
-| Build | When should I build in GenerateXRMTypes mode? |  |
-|  | How do I find the source environment for a solution? | This is configured in: ..._&lt;solutionName&gt;/scripts/config.json_ |
