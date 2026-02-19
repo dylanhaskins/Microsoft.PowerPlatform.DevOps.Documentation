@@ -1,6 +1,35 @@
-MIT License
+Copyright (c) Scott Durow, http://github.com/scottdurow/sparklexrm
+Copyright (c) 2019 Andrew https://github.com/abvogel/Microsoft.Xrm.DevOps.Data/
+Copyright (c) 2017 Delegate A/S https://github.com/delegateas/
+Copyright (c) 2014-2016 Jordi Montana https://github.com/jordimontana82/fake-xrm-easy
 
-Copyright (c) 2020 Dylan Haskins
+Copyright (c) 2020 Dylan Haskins & Eugene van Staden
+
+MIT License with Commons Clause Restriction
+
+The Software is provided to you by the Licensor under the License, as
+defined below, subject to the following condition.
+
+Without limiting other conditions in the License, the grant of rights
+under the License will not include, and the License does not grant you,
+the right to Sell the Software.
+
+For purposes of the foregoing, "Sell" means practicing any or all of
+the rights granted to you under the License to provide to third parties,
+for a fee or other consideration (including without limitation fees for
+hosting or consulting/support services related to the Software), a
+product or service whose value derives, entirely or substantially, from
+the functionality of the Software. Any license notice or attribution
+required by the License must also include this Commons Clause License
+Condition notice.
+
+Licensor: Dylan Haskins & Eugene van Staden
+Software: Microsoft.PowerPlatform.DevOps
+License: MIT License
+
+The MIT License terms below are modified by the Commons Clause condition above.
+
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
